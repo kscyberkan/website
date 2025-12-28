@@ -1,0 +1,45 @@
+@import "tailwindcss";
+
+:root {
+    --bg: #f3f3f3;
+    --card: #fff;
+    --primary: #8ba9fd;
+    --text: #111827;
+    --border: #e5e7eb;
+}
+
+/* 🌸 PINK */
+[data-theme="pink"] {
+    --bg: #fff1f2;
+    --card: #ffffff;
+    --primary: #ec4899;
+    --text: #111827;
+    --border: #f9a8d4;
+}
+
+/* 🔵 BLUE */
+[data-theme="blue"] {
+    --bg: #f0f9ff;
+    --card: #ffffff;
+    --primary: #0284c7;
+    --text: #0f172a;
+    --border: #7dd3fc;
+}
+
+/* 🟢 GREEN */
+[data-theme="green"] {
+    --bg: #ecfdf5;
+    --card: #ffffff;
+    --primary: #059669;
+    --text: #064e3b;
+    --border: #6ee7b7;
+}
+
+/* 🌙 DARK */
+[data-theme="dark"] {
+    --bg: #0f172a;
+    --card: #1e293b;
+    --primary: #38bdf8;
+    --text: #f8fafc;
+    --border: #334155;
+}
