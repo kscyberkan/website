@@ -1,6 +1,8 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { useTheme } from "../../utils/theme";
+import Button from "../../components/button";
+import { pageFunction } from "../page_manager";
 
 export default function Schedule() {
   const { theme } = useTheme();
@@ -25,6 +27,7 @@ export default function Schedule() {
   return (
     <div data-theme={theme} className="min-h-screen bg-[var(--bg)] text-[var(--text)] px-4 pb-24">
       <header className="py-6 text-center">
+        <Button.Back label="ย้อนกลับ" onClick={() => { pageFunction.setPageState({ page: 'home' }) }} />
         <h1 className="text-2xl font-bold text-[var(--primary)]">ตารางเรียน</h1>
         <p className="text-sm opacity-70">ดูและจัดการตารางเรียนของคุณ</p>
       </header>

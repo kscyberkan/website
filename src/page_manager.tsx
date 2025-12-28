@@ -4,9 +4,10 @@ import React, { use, useEffect, type JSX } from 'react'
 import Home from './home/home';
 import Video from './home/video/video';
 
-import TimeTable from './time_table/time_table';
+import Schedule from './schedule/schedule';
+import FooterMobile from './nav/footer_mobile';
 
-type PageType = "home" | "home_video" | "time_table";
+type PageType = "home" | "home_video" | "schedule";
 
 type PageManagerProps = {
     pageState: PageState;
@@ -15,7 +16,7 @@ type PageManagerProps = {
 const PageComponents: Record<PageType, (props: any) => JSX.Element> = {
     home: Home,
     home_video: Video,
-    time_table: TimeTable,
+    schedule: Schedule,
 }
 
 type PageFunctionType = {
@@ -26,7 +27,7 @@ export const pageFunction: PageFunctionType = {
     setPageState: (state: PageState) => { }
 }
 
-type PageState = { page: "home" | "home_video" | "time_table", props?: any }
+type PageState = { page: PageType, props?: any }
 
 export default function PageManager(props: PageManagerProps) {
     const [pageState, setPageState] = React.useState<PageState>(props.pageState);
@@ -38,6 +39,9 @@ export default function PageManager(props: PageManagerProps) {
     const Page = PageComponents[pageState.page];
 
     return (
-        <Page {...pageState.props} />
+        <>
+            <Page {...pageState.props} />
+            <FooterMobile />
+        </>
     )
 }

@@ -108,7 +108,7 @@ export default function Home() {
             ยินดีต้อนรับสู่คลาสถักโครเชต์ 🧶
           </h2>
           <p className="opacity-80 mb-4">เรียนรู้ สร้างสรรค์ และสนุกไปกับงานฝีมือ</p>
-          <button onClick={() => pageFunction.setPageState({ page: 'time_table' })} className="rounded-xl bg-[var(--primary)] px-6 py-3 text-white font-semibold">ดูตารางเรียน</button>
+          <button onClick={() => pageFunction.setPageState({ page: 'schedule' })} className="rounded-xl bg-[var(--primary)] px-6 py-3 text-white font-semibold hover:cursor-pointer">ดูตารางเรียน</button>
         </motion.div>
       </section>
 
@@ -143,14 +143,7 @@ export default function Home() {
           </div>
         </div>
       </section>
-
-      {/* Mobile Nav */}
-      <nav className="fixed bottom-0 left-0 right-0 bg-[var(--card)] border-t border-[var(--border)] sm:hidden">
-        <div className="flex justify-around py-2 text-sm">
-          <button className="text-[var(--primary)] font-medium">หน้าแรก</button>
-          <button className="opacity-70">ตารางเรียน</button>
-        </div>
-      </nav>
+      
     </div>
   );
 }

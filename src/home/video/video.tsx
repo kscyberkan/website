@@ -1,7 +1,11 @@
 import { motion } from "framer-motion";
 import { useTheme } from "../../../utils/theme";
 import { type Video } from "../../types/video";
-import { use, useEffect, useState } from "react";
+import { useEffect, useState } from "react";
+import { ArrowLeft } from "lucide-react";
+import { pageFunction } from "../../page_manager";
+import Button from "../../../components/button";
+
 
 export type VideoProps = {
     videoData?: Video[];
@@ -27,6 +31,7 @@ export default function Video(props: VideoProps) {
         <div data-theme={theme} className="min-h-screen bg-[var(--bg)] text-[var(--text)] px-4 pb-24">
             {/* Header */}
             <header className="py-6 text-center">
+                <Button.Back label="ย้อนกลับ" onClick={() => pageFunction.setPageState({ page: 'home' })} />
                 <h1 className="text-2xl font-bold text-[var(--primary)]">บทเรียนวิดีโอ</h1>
                 <p className="text-sm opacity-70">สอนถักโครเชต์แบบทีละขั้นตอน</p>
             </header>
@@ -85,14 +90,6 @@ export default function Video(props: VideoProps) {
                     })}
                 </div>
             </section>
-
-            {/* Bottom Nav (Mobile) */}
-            <nav className="fixed bottom-0 left-0 right-0 bg-[var(--card)] border-t border-[var(--border)] sm:hidden">
-                <div className="flex justify-around py-2 text-sm">
-                    <button className="opacity-70">หน้าแรก</button>
-                    <button className="opacity-70">ตารางเรียน</button>
-                </div>
-            </nav>
         </div>
     );
 }
