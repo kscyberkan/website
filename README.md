@@ -6,3 +6,4 @@
 ```
 npm run dev
 ```
+<img width="365" height="103" alt="image" src="https://github.com/user-attachments/assets/68704022-ac65-476c-b42e-923111834e16" />
