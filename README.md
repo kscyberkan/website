@@ -1,4 +1,4 @@
-สำหรับผู้ที่ต้องการสอนโครเชต์
+สำหรับผู้ที่ต้องการสอนโครเชต์ - Front-end
 
 1. ลง node.js - https://nodejs.org/
 2. เปิด powershell ที่ folder project
