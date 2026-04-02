@@ -1,33 +1,38 @@
-import React, { use, useEffect, type JSX } from 'react'
+import React, { useEffect, type JSX } from 'react';
 
-// 🎯 Page types
-import Home from './home/home';
-import Video from './home/video/video';
+// 🎯 Page imports
+import HomePage from './home';
+import VideoPage from './video';
 
-import Schedule from './schedule/schedule';
-import FooterMobile from './nav/footer_mobile';
+// 📋 Page types
+type PageType = 'home' | 'video';
 
-type PageType = "home" | "home_video" | "schedule";
+type PageState = { page: PageType; props?: any };
 
 type PageManagerProps = {
     pageState: PageState;
-}
+};
 
+// 🗺️ Page registry
 const PageComponents: Record<PageType, (props: any) => JSX.Element> = {
-    home: Home,
-    home_video: Video,
-    schedule: Schedule,
-}
+    home: HomePage,
+    video: VideoPage,
+};
 
+// 🌐 Global page function (เรียกจากที่ไหนก็ได้)
 type PageFunctionType = {
     setPageState: (state: PageState) => void;
-}
+};
 
 export const pageFunction: PageFunctionType = {
-    setPageState: (state: PageState) => { }
-}
+    setPageState: () => {},
+};
 
-type PageState = { page: PageType, props?: any }
+// ✅ Helper shortcuts
+export const goTo = {
+    home: () => pageFunction.setPageState({ page: 'home' }),
+    video: (props?: any) => pageFunction.setPageState({ page: 'video', props }),
+};
 
 export default function PageManager(props: PageManagerProps) {
     const [pageState, setPageState] = React.useState<PageState>(props.pageState);
@@ -38,10 +43,5 @@ export default function PageManager(props: PageManagerProps) {
 
     const Page = PageComponents[pageState.page];
 
-    return (
-        <>
-            <Page {...pageState.props} />
-            <FooterMobile />
-        </>
-    )
+    return <Page {...pageState.props} />;
 }

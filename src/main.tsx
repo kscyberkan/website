@@ -1,22 +1,27 @@
-import { StrictMode, type JSX } from 'react'
-import { createRoot } from 'react-dom/client'
-import { ThemeProvider } from '../utils/theme'
-import './global.css'
+import React from 'react';
+import ReactDOM from 'react-dom/client';
+import { ThemeProvider } from './utils/theme';
+import './global.css';
+import ThemeSelector from './components/theme_selector';
 import Auth from './auth/auth';
 import PageManager from './page_manager';
 
-function App(): JSX.Element {
-  return (
-    <ThemeProvider>
-      <Auth>
-        <PageManager pageState={{ page: 'home' }} />
-      </Auth>
-    </ThemeProvider>
-  )
+function App() {
+    return (
+        <React.StrictMode>
+            <ThemeProvider>
+                <Auth>
+                    <PageManager pageState={{ page: 'home' }} />
+                </Auth>
+                <ThemeSelector />
+            </ThemeProvider>
+        </React.StrictMode>
+    );
 }
 
-createRoot(document.getElementById('root')!).render(
-  <StrictMode>
-    <App />
-  </StrictMode>,
-)
+// เชื่อมต่อกับ <div id="root"></div> ใน index.html
+const rootElement = document.getElementById('root');
+
+if (rootElement) {
+    ReactDOM.createRoot(rootElement).render(<App />);
+}

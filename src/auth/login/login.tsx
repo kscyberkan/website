@@ -1,11 +1,11 @@
 import './login.css';
-import InputField from '../../../components/inputfield';
+import InputField from '../../components/inputfield';
 import login from './function';
 import { authFunction } from '../auth';
 import { useRef } from 'react';
 import { motion } from 'framer-motion';
-import { useTheme } from '../../../utils/theme';
-import Button from '../../../components/button';
+import { useTheme } from '../../utils/theme';
+import Button from '../../components/button';
 
 export default function Login() {
     const { theme } = useTheme();
@@ -25,7 +25,7 @@ export default function Login() {
     return (
         <div
             data-theme={theme}
-            className="min-h-screen flex items-center justify-center px-4 bg-[var(--bg)] text-[var(--text)]"
+            className="min-h-screen flex items-center justify-center px-4 py-8 bg-[var(--bg)] text-[var(--text)]"
         >
             <motion.div
                 initial={{ scale: 0.9, opacity: 0 }}
@@ -39,15 +39,16 @@ export default function Login() {
 
 
                 <div className="space-y-4">
-                    <input
-                        placeholder="Username"
-                        className="w-full rounded-xl border border-[var(--border)] bg-transparent px-4 py-3 focus:outline-none focus:ring-2 focus:ring-[var(--primary)]"
-                    />
-                    <input
-                        type="password"
-                        placeholder="Password"
-                        className="w-full rounded-xl border border-[var(--border)] bg-transparent px-4 py-3 focus:outline-none focus:ring-2 focus:ring-[var(--primary)]"
-                    />
+                    <InputField.Default ref={username} type='text' onChange={(e) => {
+                        e.target.value = e.target.value.replace(/[^a-zA-Z0-9]/g, '');
+                    }}
+                        maxLength={16}
+                        label='Username' placeholder='ชื่อผู้ใช้' />
+                    <InputField.Default ref={password} type='password' onChange={(e) => {
+                        e.target.value = e.target.value.replace(/[^a-zA-Z0-9]/g, '');
+                    }}
+                        maxLength={16}
+                        label='Password' placeholder='รหัสผ่าน' />
                 </div>
 
                 <Button.Default label="Login" onClick={handleLogin} />

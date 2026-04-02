@@ -1,9 +1,21 @@
-สำหรับผู้ที่ต้องการสอนโครเชต์ - Front-end
+# bun-react-tailwind-template
 
-1. **[ลง node.js](https://nodejs.org/)**
-2. เปิด powershell ที่ folder project
-3. ใช้คำสั่ง
+To install dependencies:
+
+```bash
+bun install
 ```
-npm run dev
+
+To start a development server:
+
+```bash
+bun dev
 ```
-<img width="365" height="103" alt="image" src="https://github.com/user-attachments/assets/68704022-ac65-476c-b42e-923111834e16" />
+
+To run for production:
+
+```bash
+bun start
+```
+
+This project was created using `bun init` in bun v1.3.10. [Bun](https://bun.com) is a fast all-in-one JavaScript runtime.

@@ -1,4 +1,4 @@
-import storage from "../../utils/storage"
+import storage from "../utils/storage"
 import { type LoginData } from "../types/login_data";
 import { authFunction } from "./auth";
 

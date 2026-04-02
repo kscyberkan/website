@@ -1,12 +1,12 @@
 import './register.css';
-import InputField from '../../../components/inputfield';
-import Button from '../../../components/button';
+import InputField from '../../components/inputfield';
+import Button from '../../components/button';
 import register from './function';
 import { useRef, useState } from 'react';
 import type { RegisterData } from '../../types/register_data';
 import { authFunction } from '../auth';
 import { motion } from 'framer-motion';
-import { useTheme } from "../../../utils/theme";
+import { useTheme } from "../../utils/theme";
 
 function ValidateData(registerData: RegisterData): boolean {
 
@@ -57,7 +57,7 @@ export default function Register() {
     }
 
     return (
-        <div data-theme={theme} className="min-h-screen flex items-center justify-center bg-[var(--bg)] text-[var(--text)] px-4">
+        <div data-theme={theme} className="min-h-screen flex items-center justify-center bg-[var(--bg)] text-[var(--text)] px-4 py-8">
             <motion.div
                 initial={{ scale: 0.9, opacity: 0 }}
                 animate={{ scale: [1.05, 1], opacity: 1 }}
